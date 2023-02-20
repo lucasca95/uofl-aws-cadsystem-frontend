@@ -13,7 +13,7 @@ function ImagesTableRowM({row=null, handleDownloadFiles}) {
         setOpen(!open);
     };
     const handleDownloadButton = (item) => {
-        console.log(item);
+        // console.log(item);
         handleDownloadFiles(item.target.value);
     };
 

@@ -10,8 +10,8 @@ export const VerificationService = {
       formData.append('token', userData.token);
       formData.append('email', userData.email);
       const getResult = await axios.post(`${url}`, formData);
-      console.log('server responde...');
-      console.log(getResult.data);
+      // console.log('server responde...');
+      // console.log(getResult.data);
       return getResult.data;
   },
 

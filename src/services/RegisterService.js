@@ -10,12 +10,12 @@ export const RegisterService = {
   registerPOST: async (userData = null) => {
     const axios = require('axios').default;
     let url = `${Environment.api}register/`;
-    const formData = new FormData();
-    formData.append('userFirstName', userData.userFirstName);
-    formData.append('userLastName', userData.userLastName);
-    formData.append('userEmail', userData.userEmail);
-    formData.append('userPassword', userData.userPassword);
-    const getResult = await axios.post(`${url}`, formData);
+    const getResult = await axios.post(`${url}`, {
+      userFirstName: userData.userFirstName,
+      userLastName: userData.userLastName,
+      userEmail: userData.userEmail,
+      userPassword: userData.userPassword
+    });
     return getResult.data;
   },
 };

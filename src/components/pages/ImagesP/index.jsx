@@ -12,7 +12,7 @@ function ImagesP(){
 
     const uploadImg = (dat)=>{
         const image = dat.files[0];
-        console.log(image);
+        // console.log(image);
         const data = {image, email: user.email}
         ImageService.sendImgPOST(data)
         .then((data)=>{
@@ -67,7 +67,14 @@ function ImagesP(){
 
     useEffect(()=>{
         loadUserImages();
-    },[]);
+        const intervalId = setInterval(()=>{
+            window.location.reload();
+        }, 300000); // 300000 milliseconds = 5 minutes
+        return ()=>{
+            clearInterval(intervalId);
+        }
+    }, []); 
+
 
     return (
         <ImagesT

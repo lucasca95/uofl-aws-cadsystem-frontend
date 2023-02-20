@@ -26,7 +26,7 @@ export const ImageService = {
       let getResult = await axios.post(`${url}`, formData, {responseType:'blob'});
       // console.log('server responde...');
       // console.log(getResult.data);
-      fileDownload((getResult.data), 'download.zip');
+      fileDownload((getResult.data), 'results.pdf');
       // let imgInfo = {
       //   'detection': -1,
       //   'classification': -1

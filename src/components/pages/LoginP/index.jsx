@@ -21,9 +21,9 @@ function LoginP({
         if (needToRegister) {
             RegisterService.registerPOST(data)
             .then((response)=>{
-                console.log(response);
-                alert('Check your e-mail to validate your account.');
+                // console.log(response);
                 if (response.status === 200) {
+                    alert('Check your e-mail to validate your account.');
                     dispatch({
                         type: 'setNeedToRegister',
                         payload: false
