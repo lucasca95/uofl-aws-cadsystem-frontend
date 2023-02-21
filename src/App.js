@@ -35,7 +35,7 @@ function App() {
             </Route>
             <Route path="/login" element={<LoginP/>} />
             <Route path="/login/" element={<LoginP/>} />
-            <Route path="/verifyemail/:token/:email" element={<EmailVerificationP/>} />
+            <Route path="/verify/:token/:email" element={<EmailVerificationP/>} />
             <Route path="*" element={<NotFoundP/>} />
           </Routes>
         </BrowserRouter>

@@ -4,14 +4,11 @@ export const VerificationService = {
 
   verifyEmailPOST: async (userData = null) => {
     const axios = require('axios').default;
-      let url = `${Environment.api}emailvalidation/`;
-
-      const formData = new FormData();
-      formData.append('token', userData.token);
-      formData.append('email', userData.email);
-      const getResult = await axios.post(`${url}`, formData);
-      // console.log('server responde...');
-      // console.log(getResult.data);
+      let url = `${Environment.api}verify/`;
+      const getResult = await axios.post(`${url}`, {
+        email: userData.email,
+        token: userData.token
+      });
       return getResult.data;
   },
 
