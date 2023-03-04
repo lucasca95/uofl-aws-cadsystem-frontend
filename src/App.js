@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Theme from './theme/theme';
 import ProtectedRoutes from './routes/ProtectedRoutes';
@@ -27,18 +27,20 @@ function App() {
     <CircularProgress color="inherit" />
   :
     <Theme>
-        <BrowserRouter>
+        <Router>
           <Routes>
             <Route element={<ProtectedRoutes/>}>
               <Route path='/' element={<ImagesP/>} />
-              <Route path='/home' element={<ImagesP/>} />
+              <Route path='/home/' element={<ImagesP/>} />
             </Route>
-            <Route path="/login" element={<LoginP/>} />
             <Route path="/login/" element={<LoginP/>} />
+            <Route path="/login" element={<LoginP/>} />
+            <Route path="/verify/" element={<EmailVerificationP/>} />
+            <Route path="/verify/:token/:email/" element={<EmailVerificationP/>} />
             <Route path="/verify/:token/:email" element={<EmailVerificationP/>} />
             <Route path="*" element={<NotFoundP/>} />
           </Routes>
-        </BrowserRouter>
+        </Router>
     </Theme>
   ;
 }
