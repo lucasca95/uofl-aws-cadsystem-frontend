@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         alignItems: 'center',
         // backgroundColor: '#444',
-        width: '25%',
-        // padding: '0 32px',
-        justifyContent: "space-evenly",
+        width: '50%',
+        padding: '0 auto',
+        justifyContent: "start",
     },
     children: {
         display: 'flex',

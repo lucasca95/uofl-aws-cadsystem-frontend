@@ -6,12 +6,9 @@ import Theme from './theme/theme';
 import ProtectedRoutes from './routes/ProtectedRoutes';
 import { useStore } from './common/Context';
 
-import LoginP from './components/pages/LoginP';
-import ImagesP from './components/pages/ImagesP';
-import EmailVerificationP from './components/pages/EmailVerificationP';
+import WorkoutsP from './components/pages/WorkoutsP';
 import NotFoundP from './components/pages/NotFoundP';
-import Environment from './environment';
-
+import WorkoutP from './components/pages/WorkoutP';
 
 function App() {
   const [{user}, dispatch] = useStore();
@@ -19,7 +16,8 @@ function App() {
 
   useEffect(()=>{
     setPageIsLoading(false);
-    // console.log(Environment.api);
+    window.location.hash = '/';
+    console.clear();
   },[]);
 
   return (pageIsLoading)
@@ -29,15 +27,9 @@ function App() {
     <Theme>
         <Router>
           <Routes>
-            <Route element={<ProtectedRoutes/>}>
-              <Route path='/' element={<ImagesP/>} />
-              <Route path='/home/' element={<ImagesP/>} />
-            </Route>
-            <Route path="/login/" element={<LoginP/>} />
-            <Route path="/login" element={<LoginP/>} />
-            <Route path="/verify/" element={<EmailVerificationP/>} />
-            <Route path="/verify/:token/:email/" element={<EmailVerificationP/>} />
-            <Route path="/verify/:token/:email" element={<EmailVerificationP/>} />
+            <Route path='/' element={<WorkoutsP/>} />
+            <Route path='/workouts/' element={<WorkoutsP/>} />
+            <Route path='/workout/:workout_id' element={<WorkoutP/>}/>
             <Route path="*" element={<NotFoundP/>} />
           </Routes>
         </Router>

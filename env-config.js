@@ -1,3 +1,3 @@
 window._env_ = {
-  BACKEND_API: "http://10.204.255.254:5000/",
+  BACKEND_API: "http://127.0.0.1:5000/",
 }
